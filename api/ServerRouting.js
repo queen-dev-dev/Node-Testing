@@ -22,7 +22,7 @@ const server = http.createServer(async function(req, res) {
                filePath = path.join(__dirname,'/../public/about.html')
             } else {
                 res.writeHead(404, {'Content-Type': 'text/html'});
-                res.end("<h1>NOT FOUND</h1>");
+                res.end("<h1> 404 NOT FOUND</h1>");
             }
         const data = await fs.readFile(filePath)
         res.setHeader('Content-type', 'text/html')
