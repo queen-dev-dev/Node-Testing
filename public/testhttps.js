@@ -1,6 +1,6 @@
 async function getUsers() {
     try{
-        let res = await fetch ("../api/users");
+        let res = await fetch ("https://node-testing-three.vercel.app//api/users");
         console.log(res.ok);
         if (!res.ok) {
             throw new Error("ruh roh get out of here");
