@@ -1,5 +1,4 @@
 import {createServer} from 'http'; 
-import { json } from 'stream/consumers';
 const PORT = process.env.PORT;
 
 const users = [
@@ -7,7 +6,6 @@ const users = [
     {id: 2, name: 'Jane Doe'},
     {id: 3, name: 'Barack Obama'},
 ];
-
 
 const server = createServer(function(req, res) { // create server, request, response
     logger(req, res, () => {
@@ -29,22 +27,17 @@ server.listen(PORT, function(){ // when server is created, send a message - PORT
     console.log(`Server running on port ${PORT}`)
 });
 
-
-
 //logger middleware
-
 const logger = (req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next(); // calls next middleware after finishes
 };
-
 
 //json middleware 
 const jsonMiddleware= (req, res, next) => {
     res.setHeader('Content-Type', 'application/json') // sends back json
     next();
 };
-
 
 // Route handler for GET /api/users 
 const getUsersHandler = (req, res) => {
@@ -53,7 +46,6 @@ const getUsersHandler = (req, res) => {
 };
 
 // Route handler for GET /api/users/:id
-
 const getUserByIdHandler = (req, res) => {
     const id = req.url.split('/')[3];
     const user = users.find((user) => user.id === parseInt(id));
