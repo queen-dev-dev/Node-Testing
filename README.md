@@ -1,1 +1,1 @@
-Random testing with react (planning to make a backend soon - keep tuned)
+Random testing with node, probably won't edit again
